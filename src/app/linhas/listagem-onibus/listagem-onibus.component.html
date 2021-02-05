@@ -1,7 +1,6 @@
 <div class="container">
     <div class="row">
-      <div class="col-md-12 mx-auto">
-        <div class="md-form center">
+        <div class="md-form mx-auto" style="width: 100%;">
           <input
             type="text"
             [(ngModel)]="searchValue"
@@ -9,24 +8,25 @@
             placeholder="Filtrar por nome da linha"
           />
         </div>
-      </div>
     </div>
-    <table class="table center table-striped">
-      <thead class="table-dark">
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Codigo</th>
-          <th scope="col">Nome da Linha</th>
-          <th scope="col">Rota</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let c of linhas | searchFilter:searchValue">
-          <th scope="row">{{c.id}}</th>
-          <td>{{c.codigo}}</td>
-          <td>{{c.nome}}</td>
-          <td><button mdbBtn type="button" color="primary" (click)="onSelect(c)">Ir</button></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table center table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nome da Linha</th>
+            <th scope="col">Rota</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of linhas | searchFilter:searchValue">
+            <th scope="row">{{c.id}}</th>
+            <td>{{c.codigo}}</td>
+            <td>{{c.nome}}</td>
+            <td><button mdbBtn type="button" color="primary" (click)="onSelect(c)">Ir</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>  
   </div>
