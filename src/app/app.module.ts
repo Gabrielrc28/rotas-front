@@ -1,6 +1,7 @@
 import { ApiService } from './api.service';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,20 +10,48 @@ import { ListagemOnibusComponent } from './linhas/listagem-onibus/listagem-onibu
 import { ListagemLotacaoComponent } from './linhas/listagem-lotacao/listagem-lotacao.component';
 import { ListagemRotaComponent } from './linhas/listagem-rota/listagem-rota.component';
 
+import { NavbarModule, WavesModule, ButtonsModule, CardsModule, TableModule, InputsModule, CollapseModule} from 'angular-bootstrap-md';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './template_components/header/header.component';
+import { FooterComponent } from './template_components/footer/footer.component';
+import { PaginaSelecaoComponent } from './linhas/pagina-selecao/pagina-selecao.component';
+import { SearchFilterPipe } from './search-filter.pipe';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faBarcode, faFingerprint, faBus, faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     ListagemOnibusComponent,
-    ListagemOnibusComponent,
     ListagemLotacaoComponent,
-    ListagemRotaComponent
+    ListagemRotaComponent,
+    HeaderComponent,
+    FooterComponent,
+    PaginaSelecaoComponent,
+    SearchFilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NavbarModule,
+    WavesModule,
+    ButtonsModule,
+    NgbModule,
+    CardsModule,
+    TableModule,
+    FormsModule,
+    InputsModule.forRoot(),
+    FontAwesomeModule,
+    CollapseModule
   ],
+  schemas: [NO_ERRORS_SCHEMA],
   providers: [ApiService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor (private library: FaIconLibrary){
+    library.addIcons(faBarcode, faFingerprint, faBus, faMapMarkedAlt);
+  }
+ }

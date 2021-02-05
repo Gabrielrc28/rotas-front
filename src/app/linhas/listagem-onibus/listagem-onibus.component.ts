@@ -1,5 +1,6 @@
+import { Router } from '@angular/router';
 import { ApiService } from '../../api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-listagem-onibus',
@@ -8,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListagemOnibusComponent implements OnInit {
 
-  linhas : Array<any> | undefined;
+  linhas : any = [];
+  searchValue! : string;
 
-  constructor(private apiService : ApiService) { }
+  constructor(private apiService : ApiService, private router : Router) { }
 
   ngOnInit(): void {
     this.listar();
@@ -18,5 +20,8 @@ export class ListagemOnibusComponent implements OnInit {
 
   listar() {
     this.apiService.listarOnibus().subscribe(dados => this.linhas = dados);
+  }
+  onSelect(linha: any){
+    this.router.navigate(['rota/',linha.id]);
   }
 }

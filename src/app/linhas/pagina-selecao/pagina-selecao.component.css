@@ -1,0 +1,18 @@
+.container {
+    display: flex; /* or inline-flex */
+}
+
+.divs{
+    padding: 3%;
+}
+
+.salve{
+    line-height: 1.25; 
+    margin: 0 0 10px; 
+    font-size: 35px; 
+    /* font-weight: bold */
+}
+.titulo{
+    padding-left: 10px;
+    padding-top: 10px;
+}

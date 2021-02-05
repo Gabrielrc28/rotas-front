@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from '../../api.service';
 
 @Component({
@@ -8,9 +9,10 @@ import { ApiService } from '../../api.service';
 })
 export class ListagemLotacaoComponent implements OnInit {
 
-  linhas : Array<any> | undefined;
+  linhas : any = [];
+  searchValue! : string;
 
-  constructor(private apiService : ApiService) { }
+  constructor(private apiService : ApiService, private router : Router) { }
 
   ngOnInit(): void {
     this.listar();
@@ -18,5 +20,9 @@ export class ListagemLotacaoComponent implements OnInit {
 
   listar() {
     this.apiService.listarLotacao().subscribe(dados => this.linhas = dados);
+  }
+
+  onSelect(linha: any){
+    this.router.navigate(['rota/',linha.id]);
   }
 }
