@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="md-form mx-auto" style="width: 100%;">
+          <fa-icon [icon]="['fas', 'search']"></fa-icon>
           <input
             type="text"
             [(ngModel)]="searchValue"
@@ -20,7 +21,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let c of linhas | searchFilter:searchValue">
+            <tr *ngFor="let c of linhas | searchFilter:searchValue | paginate: {
+            itemsPerPage: 10,
+            currentPage: page}">
               <th scope="row">{{c.id}}</th>
               <td>{{c.codigo}}</td>
               <td>{{c.nome}}</td>
@@ -28,5 +31,6 @@
             </tr>
           </tbody>
         </table>
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
       </div>  
 </div>

@@ -14,6 +14,7 @@ export class ListagemRotaComponent implements OnInit {
   coords: Array<Coord> = [];
   coord! : Coord;
   id: number = 0;
+  page : any = 1;
 
   constructor(private apiService : ApiService, private route: ActivatedRoute) { }
 

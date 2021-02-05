@@ -11,6 +11,7 @@ export class ListagemOnibusComponent implements OnInit {
 
   linhas : any = [];
   searchValue! : string;
+  page : any = 1;
 
   constructor(private apiService : ApiService, private router : Router) { }
 

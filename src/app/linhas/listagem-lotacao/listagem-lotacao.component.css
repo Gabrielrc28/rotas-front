@@ -5,3 +5,7 @@
  table tbody tr:hover { 
    background-color:grey; 
  }
+
+.my-pagination /deep/ .ngx-pagination .current {
+  background: red;
+}

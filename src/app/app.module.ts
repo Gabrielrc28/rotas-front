@@ -2,6 +2,7 @@ import { ApiService } from './api.service';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,7 @@ import { FooterComponent } from './template_components/footer/footer.component';
 import { PaginaSelecaoComponent } from './linhas/pagina-selecao/pagina-selecao.component';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBarcode, faFingerprint, faBus, faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBarcode, faFingerprint, faBus, faMapMarkedAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { faBarcode, faFingerprint, faBus, faMapMarkedAlt } from '@fortawesome/fr
     FormsModule,
     InputsModule.forRoot(),
     FontAwesomeModule,
-    CollapseModule
+    CollapseModule,
+    NgxPaginationModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [ApiService],
@@ -52,6 +54,6 @@ import { faBarcode, faFingerprint, faBus, faMapMarkedAlt } from '@fortawesome/fr
 })
 export class AppModule {
   constructor (private library: FaIconLibrary){
-    library.addIcons(faBarcode, faFingerprint, faBus, faMapMarkedAlt);
+    library.addIcons(faBarcode, faFingerprint, faBus, faMapMarkedAlt, faSearch);
   }
  }
