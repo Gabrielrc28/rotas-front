@@ -1,20 +1,10 @@
-.center {
-    width: 30%;
-    border: 3px;
-    padding: 10px;
-  }
-
-  table tbody tr:hover { 
-    background-color:grey; 
-  }
-
-.coluna-50 {
-    width: 50%;
-    border: 3px;
-    padding: 10px;
+ table tbody tr:hover { 
+  background-color:grey; 
 }
 
 .linha{
-    display: flex;
-    flex-flow: row wrap;
-    }
+  display: flex;
+  flex-flow: row wrap;
+  border: 3px;
+  padding: 10px;
+}

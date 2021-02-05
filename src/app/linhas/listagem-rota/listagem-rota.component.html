@@ -1,30 +1,29 @@
 
-<div class="linha">
-
-    <div class="coluna-50">
+<div class="linha ">
+    <div>
         <h2><fa-icon [icon]="['fas', 'fingerprint']"></fa-icon> ID: {{rota?.idlinha}}</h2>
         <h2><fa-icon [icon]="['fas', 'barcode']"></fa-icon> Código: {{rota?.codigo}}</h2> 
         <h2><fa-icon [icon]="['fas', 'bus']"></fa-icon> Nome: {{rota?.nome}}</h2>     
     </div>
-    <div class="coluna-50">
-        <table class="table center table-striped">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">Latitude</th>
-                    <th scope="col">Longitude</th>
-                    <th scope="col">Mapa</th>
-                </tr>
-            </thead>
-            <tbody>
-                    <tr *ngFor="let c of coords| paginate: {
-                        itemsPerPage: 10,
-                        currentPage: page}">
-                        <td>{{c.lat}}</td>
-                        <td>{{c.lng}}</td>
-                        <td><a href="https://www.google.com/maps/?q={{c.lat}},{{c.lng}}"><fa-icon [icon]="['fas', 'map-marked-alt']"></fa-icon></a></td>
+    <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Latitude</th>
+                        <th scope="col">Longitude</th>
+                        <th scope="col">Mapa</th>
                     </tr>
-            </tbody>
-        </table>
-        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let c of coords| paginate: {
+                            itemsPerPage: 10,
+                            currentPage: page}">
+                            <td>{{c.lat}}</td>
+                            <td>{{c.lng}}</td>
+                            <td><a href="https://www.google.com/maps/?q={{c.lat}},{{c.lng}}"><fa-icon [icon]="['fas', 'map-marked-alt']"></fa-icon></a></td>
+                        </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
 </div>
